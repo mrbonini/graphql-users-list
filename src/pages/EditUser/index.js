@@ -83,7 +83,10 @@ export default function EditUser(props) {
 
   return (
     <section>
-      <div className="flex-spaced" style={{ padding: '15px 0', borderBottom: '1px solid #e5e5e5' }}>
+      <div
+        className="flex-spaced"
+        style={{ padding: "15px 0", borderBottom: "1px solid #e5e5e5" }}
+      >
         <Title size="34px" color="#000000">
           {user.email}
         </Title>
@@ -106,27 +109,35 @@ export default function EditUser(props) {
         </Button>
       </div>
       <div className="flex-evenly">
-        <div style={{ width: '48%' }}>
+        <div style={{ width: "48%" }}>
           <div>
             <Label>Name</Label>
           </div>
           <StyledInput
             value={user.name}
-            onChange={(evt) => handleEdit(evt, 'name')}
+            onChange={(evt) => handleEdit(evt, "name")}
           />
         </div>
         <HorizontalDivider />
-        <div style={{ width: '48%' }}>
-          <Label style={{ paddingLeft: '0.35em' }}>Role</Label>
+        <div style={{ width: "48%" }}>
+          <div>
+            <Label>Role</Label>
+          </div>
           {roles.map((role) => (
-            <div key={role.value} style={{padding: '5px 0', display: 'flex', alignItems: 'center'}}>
+            <div
+              key={role.value}
+              style={{
+                padding: "5px 0",
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
               <RadioButton
-                // type="radio"
                 value={role.value}
                 checked={user.role === role.value}
                 onClick={() => setUser({ ...user, role: role.value })}
               />
-              <Label style={{marginLeft: '5px'}}>{role.name}</Label>
+              <Label style={{ marginLeft: "10px" }}>{role.name}</Label>
             </div>
           ))}
         </div>
